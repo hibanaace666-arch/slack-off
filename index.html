@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巡邏箱圖片紀錄</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f0f2f5; margin: 0; padding: 20px; }
+        .nav { margin-bottom: 25px; display: flex; justify-content: center; gap: 10px; }
+        .nav button { padding: 12px 24px; font-size: 16px; font-weight: bold; cursor: pointer; border: none; background: #ddd; border-radius: 8px; min-width: 150px; }
+        .nav button.active { background: #007bff; color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background: #ccc; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- 分頁按鈕 -->
+    <div class="nav">
+        <button class="active" onclick="switchTab('tabA', this)">一般巡邏箱</button>
+        <button onclick="switchTab('tabB', this)">選舉巡邏箱</button>
+    </div>
+
+    <!-- 第一分頁 (12張圖片) -->
+    <div id="tabA" class="tab-content active">
+        <div class="gallery">
+            <img src="tabA/1.jpg" alt="圖片 1">
+            <img src="tabA/2.jpg" alt="圖片 2">
+            <img src="tabA/3.jpg" alt="圖片 3">
+            <img src="tabA/4.jpg" alt="圖片 4">
+            <img src="tabA/5.jpg" alt="圖片 5">
+            <img src="tabA/6.jpg" alt="圖片 6">
+            <img src="tabA/7.jpg" alt="圖片 7">
+            <img src="tabA/8.jpg" alt="圖片 8">
+            <img src="tabA/9.jpg" alt="圖片 9">
+            <img src="tabA/10.jpg" alt="圖片 10">
+            <img src="tabA/11.jpg" alt="圖片 11">
+            <img src="tabA/12.jpg" alt="圖片 12">
+        </div>
+    </div>
+
+    <!-- 第二分頁 (2張圖片) -->
+    <div id="tabB" class="tab-content">
+        <div class="gallery">
+            <img src="tabB/1.jpg" alt="圖片 A">
+            <img src="tabB/2.jpg" alt="圖片 B">
+        </div>
+    </div>
+
+    <!-- 分頁切換腳本 -->
+    <script>
+        function switchTab(tabId, button) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            button.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
